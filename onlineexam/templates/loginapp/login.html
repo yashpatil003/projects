@@ -1,0 +1,77 @@
+{%include 'loginapp/message.html' %}
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f3d636;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Styling for the form container */
+form {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(228, 208, 208, 0.1);
+    padding: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="password"] {
+    width: 50%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #0c0c0c;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    width: 90%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Placeholder text styling */
+input::placeholder {
+    color: #888;
+}
+
+</style>
+
+<form method="post">
+
+    {% csrf_token %}
+
+    <input  type="text"  placeholder="Enter user name" name="username">
+
+    <input type="password" placeholder="Enter password" name="password">
+    
+    <input type="submit" value="sign in" formaction="/login/">
+
+    <!-- relative url is considered as / is not given 
+         relative url  creates url by appending new url to existing url
+    -->
+
+</form>
+
